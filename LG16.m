@@ -1,5 +1,5 @@
 %% LBYDISP1 Final Project
-
+clc; clear; close all;
 
 %% 1. Import Audio
 
