@@ -26,7 +26,7 @@ sound(x, Fs);
 % A. Adaptive Filter
 
 
-% B. FIR Filter
+% B. IIR Filter
 
 
 
