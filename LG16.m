@@ -35,3 +35,12 @@ ylabel('Amplitude');
 %% 3. Comparison of Results
 
 
+
+
+
+%{
+Play original sound: sound(x, Fs);
+Play filtered sound (Adaptive): sound(x_adaptive, Fs);
+Play filtered sound (IIR): sound(x_iir, Fs);
+%}
+
