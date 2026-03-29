@@ -29,7 +29,7 @@ ylabel('Amplitude');
 
 % B. IIR Filter
 
-% cutoff frequencies for bandpass filter
+% cutoff frequencies for human voice
 f_lower = 300;
 f_upper = 3400;
 
