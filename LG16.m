@@ -15,7 +15,7 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 
 % play NewsReportSignal-1.wav
-sound(x, Fs);
+% sound(x, Fs);
 
 
 
