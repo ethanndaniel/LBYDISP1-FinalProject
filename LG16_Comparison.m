@@ -136,3 +136,7 @@ mse_adapt = mean((x - x_adaptive).^2);
 
 snr_iir = 10 * log10(sum(x.^2) / sum((x - x_iir).^2));
 mse_iir = mean((x - x_iir).^2);
+
+% display performance metrics through the command window
+fprintf('Adaptive -> Signal_to_Noise_Ratio: %.2f dB | Mean_Squared_Error: %e\n', snr_adapt, mse_adapt);
+fprintf('IIR      -> Signal_to_Noise_Ratio: %.2f dB | Mean_Squared_Error: %e\n', snr_iir, mse_iir);
