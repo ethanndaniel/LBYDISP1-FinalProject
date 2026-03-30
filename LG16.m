@@ -109,11 +109,12 @@ subplot(3,1,2); plot(f(1:half_N), Xa_mag(1:half_N)); title('Adaptive Spectrum');
 subplot(3,1,3); plot(f(1:half_N), Xi_mag(1:half_N)); title('IIR Spectrum');
 
 % playback audio signals sequentially
-sound(x, Fs); 
+
+sound(x, Fs);
 pause(length(x)/Fs + 1);
-sound(x_adaptive, Fs); 
+sound(x_adaptive, Fs);
 pause(length(x_adaptive)/Fs + 1);
-sound(x_iir, Fs); 
+sound(x_iir, Fs);
 
 % calculate signal-to-noise ratio and mean squared error
 snr_adapt = 10 * log10(sum(x.^2) / sum((x - x_adaptive).^2));
@@ -125,3 +126,13 @@ mse_iir = mean((x - x_iir).^2);
 % display performance metrics through the command window
 fprintf('Adaptive -> Signal_to_Noise_Ratio: %.2f dB | Mean_Squared_Error: %e\n', snr_adapt, mse_adapt);
 fprintf('IIR      -> Signal_to_Noise_Ratio: %.2f dB | Mean_Squared_Error: %e\n', snr_iir, mse_iir);
+
+%% 4. Export Filtered Audios
+
+% normalize signals to avoid clipping
+x_adaptive_norm = x_adaptive / max(abs(x_adaptive));
+x_iir_norm = x_iir / max(abs(x_iir));
+
+% save as .wav files
+audiowrite('adaptive_output.wav', x_adaptive_norm, Fs);
+audiowrite('iir_output.wav', x_iir_norm, Fs);
